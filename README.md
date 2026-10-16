@@ -513,3 +513,20 @@ To run the project with a persistent MySQL database instead of the default in-me
    .\mvnw.cmd spring-boot:run
    ```
    Hibernate will automatically create the `students` table in your MySQL `studentdb` schema.
+
+
+[//]: # ()
+[//]: # ()
+[//]: # (Test Endpoint                                     │ Output / Order                                                         │ Status)
+
+[//]: # (───────────────────────────────────────────────────┼────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────)
+
+[//]: # (GET /students/search/name/Rahul                   │ [{"id":1,"name":"Rahul","email":"rahul@example.com"}]                  │ ✅ Pass)
+
+[//]: # (GET /students/search/email/priya@example.com      │ [{"id":2,"name":"Priya","email":"priya@example.com"}]                  │ ✅ Pass)
+
+[//]: # (GET /students/page?page=0&size=2                  │ Page 0 &#40;Students 1 & 2: Rahul, Priya, totalElements: 5, totalPages: 3&#41; │ ✅ Pass)
+
+[//]: # (GET /students/page?page=1&size=2                  │ Page 1 &#40;Students 3 & 4: Amit, Neha&#41;                                    │ ✅ Pass)
+
+[//]: # (GET /students/sort/name                           │ Alphabetical order: Amit → Neha → Priya → Rahul → Ravi                 │ ✅ Pass)
